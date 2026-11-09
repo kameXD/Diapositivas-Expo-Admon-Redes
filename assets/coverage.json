@@ -1,0 +1,187 @@
+[
+  {
+    "slide": 2,
+    "title": "Introducción a la administración de redes",
+    "level": 1
+  },
+  {
+    "slide": 3,
+    "title": "I. CDP y LLDP",
+    "level": 1
+  },
+  {
+    "slide": 4,
+    "title": "• Definición de CDP y LLDP",
+    "level": 2
+  },
+  {
+    "slide": 5,
+    "title": "• Funcionamiento",
+    "level": 2
+  },
+  {
+    "slide": 6,
+    "title": "• Importancia del descubrimiento de vecinos",
+    "level": 2
+  },
+  {
+    "slide": 7,
+    "title": "• Ejemplos en la administración de redes",
+    "level": 2
+  },
+  {
+    "slide": 8,
+    "title": "• Comandos principales",
+    "level": 2
+  },
+  {
+    "slide": 9,
+    "title": "II. NTP (Network Time Protocol)",
+    "level": 1
+  },
+  {
+    "slide": 10,
+    "title": "• Definición de NTP",
+    "level": 2
+  },
+  {
+    "slide": 11,
+    "title": "• Funcionamiento del protocolo NTP",
+    "level": 2
+  },
+  {
+    "slide": 12,
+    "title": "• Importancia de la sincronización horaria en una red",
+    "level": 2
+  },
+  {
+    "slide": 13,
+    "title": "• Servidores y clientes NTP",
+    "level": 2
+  },
+  {
+    "slide": 14,
+    "title": "• Ejemplos de aplicación en la administración de redes",
+    "level": 2
+  },
+  {
+    "slide": 15,
+    "title": "• Comandos principales de NTP en Cisco",
+    "level": 2
+  },
+  {
+    "slide": 16,
+    "title": "III. SNMP (Simple Network Management Protocol)",
+    "level": 1
+  },
+  {
+    "slide": 17,
+    "title": "• Definición",
+    "level": 2
+  },
+  {
+    "slide": 18,
+    "title": "• Funcionamiento",
+    "level": 2
+  },
+  {
+    "slide": 19,
+    "title": "• Importancia",
+    "level": 2
+  },
+  {
+    "slide": 20,
+    "title": "• Ejemplos de aplicación",
+    "level": 2
+  },
+  {
+    "slide": 21,
+    "title": "IV. Syslog",
+    "level": 1
+  },
+  {
+    "slide": 22,
+    "title": "• Definición",
+    "level": 2
+  },
+  {
+    "slide": 23,
+    "title": "• Funcionamiento",
+    "level": 2
+  },
+  {
+    "slide": 24,
+    "title": "• Importancia",
+    "level": 2
+  },
+  {
+    "slide": 25,
+    "title": "• Ejemplos de aplicación",
+    "level": 2
+  },
+  {
+    "slide": 26,
+    "title": "• Aplicación conjunta de SNMP y Syslog",
+    "level": 2
+  },
+  {
+    "slide": 27,
+    "title": "V. Respaldo de configuraciones y administración de imágenes IOS",
+    "level": 1
+  },
+  {
+    "slide": 28,
+    "title": "• Introducción",
+    "level": 2
+  },
+  {
+    "slide": 29,
+    "title": "• Respaldo de configuraciones",
+    "level": 2
+  },
+  {
+    "slide": 30,
+    "title": "• Definición e importancia de los respaldos",
+    "level": 2
+  },
+  {
+    "slide": 31,
+    "title": "Importancia de los respaldos:",
+    "level": 2
+  },
+  {
+    "slide": 32,
+    "title": "• Diferencias entre running-config y startup-config",
+    "level": 2
+  },
+  {
+    "slide": 33,
+    "title": "• Métodos de respaldo y restauración",
+    "level": 2
+  },
+  {
+    "slide": 34,
+    "title": "VI. Administración de imágenes IOS",
+    "level": 2
+  },
+  {
+    "slide": 35,
+    "title": "• ¿Qué es Cisco IOS?",
+    "level": 2
+  },
+  {
+    "slide": 36,
+    "title": "• ¿Qué son las imágenes IOS y para qué sirven?",
+    "level": 2
+  },
+  {
+    "slide": 37,
+    "title": "• Ejemplos de aplicación en la administración de redes",
+    "level": 2
+  },
+  {
+    "slide": 39,
+    "title": "Conclusión",
+    "level": 1
+  }
+]
