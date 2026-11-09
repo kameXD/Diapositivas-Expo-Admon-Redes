@@ -26,6 +26,7 @@
     const types={
       neighbors:()=>node('switch','Switch A','Conserva su tabla de vecinos.')+exchange('A anuncia su identidad y puerto','B también envía sus anuncios')+node('switch','Switch B','Registra a su vecino directo.'),
       ntp:()=>devices([['router','Router cliente'],['switch','Switch cliente'],['monitor','Computadora cliente']])+exchange('Los clientes consultan la hora','El servidor responde con información horaria')+node('clock','Servidor NTP','Proporciona una referencia de tiempo.'),
+      'snmp-central':()=>node('monitor','Plataforma SNMP','Supervisión centralizada')+exchange('Consultas a los dispositivos','Respuestas con información de los equipos')+devices([['router','Router con agente'],['switch','Switch con agente'],['server','Servidor con agente']]),
       snmp:()=>node('monitor','Administrador SNMP','La plataforma central reúne los datos.')+exchange('Consulta: ¿cuál es el estado de la interfaz?','Respuesta: el agente devuelve los datos')+node('router','Equipo con agente','El agente obtiene información del dispositivo.'),
       'snmp-notifications':()=>node('monitor','Plataforma de administración','')+`<div class="exchange"><span>Consulta</span><div class="connection right" aria-hidden="true"></div><div class="connection left" aria-hidden="true"></div><span>Respuesta</span><div class="connection left" aria-hidden="true"></div><span>Notificación</span></div>`+node('router','Agente SNMP',''),
       'tftp-backup':()=>node('switch','Dispositivo Cisco','')+exchange('Configuración → Respaldo','')+node('server','Servidor TFTP',''),

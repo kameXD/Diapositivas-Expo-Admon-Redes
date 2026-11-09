@@ -1,4 +1,4 @@
-/* Redacción literal proporcionada por el grupo. */
+/* Redacción aprobada por el grupo, con sus transiciones de continuidad oral. */
 window.PRESENTATION_SLIDES = [
   {
     "section": "intro",
@@ -18,7 +18,7 @@ window.PRESENTATION_SLIDES = [
       "level": 1
     },
     "title": "Introducción a la administración de redes",
-    "lead": "Cuando administramos una red, no basta con que los dispositivos estén conectados y funcionando. También necesitamos conocer los equipos que la forman, detectar problemas, revisar los eventos que ocurren y estar preparados para recuperar las configuraciones cuando algo falla.\n\nPara realizar estas tareas existen diferentes protocolos y herramientas que veremos a continuación",
+    "lead": "Cuando administramos una red, no basta con que los dispositivos estén conectados y funcionando. También necesitamos conocer los equipos que la forman, detectar problemas, revisar los eventos que ocurren y estar preparados para recuperar las configuraciones cuando algo falla.\n\nPara realizar estas tareas existen diferentes protocolos y herramientas, que podemos agrupar en tres áreas principales: descubrimiento, supervisión y mantenimiento",
     "cards": [
       {
         "title": "Descubrimiento",
@@ -55,7 +55,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Definición de CDP y LLDP",
-    "lead": "CDP y LLDP trabajan en la capa 2 del modelo OSI y permiten que los dispositivos compartan información con sus vecinos. Aunque cumplen una función similar, tienen una diferencia importante",
+    "lead": "CDP y LLDP trabajan en la capa 2 del modelo OSI y permiten que los dispositivos compartan información con sus vecinos. Aunque cumplen una función similar, existe una diferencia importante entre ambos: CDP es propio de Cisco, mientras que LLDP es un estándar abierto",
     "cards": [
       {
         "title": "CDP",
@@ -79,7 +79,7 @@ window.PRESENTATION_SLIDES = [
     "lead": "¿Cómo descubren los dispositivos a sus vecinos? Lo hacen enviando anuncios periódicos por sus interfaces. Los equipos conectados reciben estos anuncios y guardan la información en una tabla de vecinos.\n\nEn el diagrama podemos observar cómo ambos switches intercambian esos anuncios para reconocer sus conexiones",
     "cards": [],
     "note": "Si un equipo deja de recibir anuncios durante el tiempo de retención, elimina la información de ese vecino",
-    "tableIntro": "Los protocolos utilizan diferentes intervalos de envío y tiempos de retención, como se muestra en la tabla",
+    "tableIntro": "Además de intercambiar anuncios, cada protocolo tiene valores que determinan cada cuánto se envía la información y cuánto tiempo se conserva. Podemos comparar esos valores en la siguiente tabla",
     "image": "image2.png",
     "imageAlt": "Dos switches intercambian anuncios periódicos y mantienen sus tablas de vecinos.",
     "layout": "image-table",
@@ -116,7 +116,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Importancia del descubrimiento de vecinos",
-    "lead": "Descubrir los dispositivos vecinos no solamente sirve para conocer la topología. También facilita el mantenimiento de la red, porque permite comprobar las conexiones y localizar posibles errores",
+    "lead": "Descubrir los dispositivos vecinos no solamente sirve para conocer la topología. También facilita el mantenimiento de la red, porque permite comprobar las conexiones y localizar posibles errores. Esto nos ofrece tres ventajas principales: conocer la topología, facilitar el diagnóstico y verificar las conexiones",
     "cards": [
       {
         "title": "Topología",
@@ -131,7 +131,7 @@ window.PRESENTATION_SLIDES = [
         "text": "Permite comprobar si un cable está conectado al puerto correcto"
       }
     ],
-    "note": "Como estos protocolos pueden revelar información de los dispositivos, conviene desactivarlos en las interfaces donde no sean necesarios"
+    "note": "Sin embargo, debemos considerar un aspecto de seguridad: estos protocolos pueden revelar información de los dispositivos. Por eso, conviene desactivarlos en las interfaces donde no sean necesarios"
   },
   {
     "section": "cdp",
@@ -166,7 +166,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Comandos principales de CDP y LLDP",
-    "lead": "En los dispositivos Cisco podemos utilizar comandos para consultar los vecinos descubiertos. También existen comandos para activar o desactivar estos protocolos, según las necesidades de la red",
+    "lead": "Después de conocer cómo funcionan CDP y LLDP, podemos utilizar algunos comandos Cisco para consultar los dispositivos vecinos o controlar el funcionamiento de estos protocolos. En la siguiente tabla tenemos los comandos principales y su utilidad",
     "cards": [],
     "takeaway": "Los comandos `show` permiten consultar la información, mientras que los comandos de configuración controlan el funcionamiento de CDP y LLDP",
     "table": {
@@ -231,7 +231,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Definición de NTP",
-    "lead": "NTP significa Network Time Protocol y su función es sincronizar los relojes de los dispositivos de una red.\n\nEsto es importante porque, si cada equipo tiene una hora diferente, puede resultar difícil saber cuándo ocurrió una falla o en qué orden sucedieron los eventos",
+    "lead": "NTP significa Network Time Protocol y su función es sincronizar los relojes de los dispositivos de una red. Esto es importante porque, si cada equipo tiene una hora diferente, puede resultar difícil saber cuándo ocurrió una falla o en qué orden sucedieron los eventos. Para comprenderlo mejor, comparemos qué sucede cuando los dispositivos están sincronizados y cuando no lo están",
     "cards": [
       {
         "title": "Sin sincronización",
@@ -253,7 +253,7 @@ window.PRESENTATION_SLIDES = [
     "title": "Funcionamiento del protocolo NTP",
     "lead": "Ahora que sabemos para qué sirve NTP, veamos cómo funciona.\n\nUn dispositivo cliente se comunica con un servidor NTP para obtener una referencia horaria. Después compara esa información con su propio reloj y realiza los ajustes necesarios. Este intercambio se repite para mantener la sincronización",
     "cards": [],
-    "takeaway": "En la imagen, el servidor proporciona la referencia horaria y el router puede recibirla y compartirla con otros equipos, como el switch",
+    "takeaway": "En esta imagen podemos ver cómo el router recibe la referencia horaria del servidor NTP y, a su vez, puede proporcionar esa información al switch",
     "image": "image3.jpg",
     "imageAlt": "Un switch cliente NTP consulta a un router que actúa como cliente y servidor, conectado a un servidor NTP externo.",
     "layout": "image"
@@ -266,7 +266,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Importancia de la sincronización horaria",
-    "lead": "Mantener una hora común permite relacionar los registros de diferentes dispositivos. Esto resulta especialmente útil cuando necesitamos investigar una falla o revisar actividades sospechosas",
+    "lead": "Mantener una hora común permite relacionar los registros de diferentes dispositivos. Esto resulta especialmente útil cuando necesitamos investigar una falla o revisar actividades sospechosas. Sus principales beneficios se encuentran en el diagnóstico de problemas, la seguridad y la administración de la red",
     "cards": [
       {
         "title": "Diagnóstico",
@@ -311,7 +311,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Ejemplos de aplicación de NTP",
-    "lead": "Veamos cómo puede utilizarse NTP en situaciones reales. Su utilidad principal es mantener una referencia horaria común entre los dispositivos de una organización",
+    "lead": "Ahora que conocemos el funcionamiento de NTP, veamos cómo se aplica en situaciones reales. Podemos encontrarlo tanto en empresas como en universidades, donde mantener una hora común facilita la administración de los dispositivos",
     "cards": [
       {
         "title": "Empresa",
@@ -332,7 +332,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Comandos principales de NTP en Cisco",
-    "lead": "En Cisco podemos configurar un servidor NTP y después comprobar si el dispositivo realmente se ha sincronizado. Para ello utilizamos los siguientes comandos",
+    "lead": "Para utilizar NTP en Cisco, primero debemos indicar qué servidor proporcionará la referencia horaria. Después podemos comprobar la hora del dispositivo y verificar si realmente se encuentra sincronizado. Estos son los comandos principales que utilizamos para hacerlo",
     "cards": [],
     "note": "Es importante recordar que `show clock` muestra la hora del dispositivo, mientras que `show ntp status` permite verificar si está sincronizado",
     "table": {
@@ -380,7 +380,7 @@ window.PRESENTATION_SLIDES = [
     "lead": "Ya vimos cómo identificar dispositivos y sincronizar sus relojes. Sin embargo, también necesitamos saber si los equipos están funcionando correctamente.\n\nPara eso utilizamos SNMP, un protocolo que permite supervisar routers, switches y otros dispositivos desde una plataforma central, sin tener que revisarlos uno por uno",
     "cards": [],
     "takeaway": "El administrador puede consultar información de varios equipos desde un mismo lugar",
-    "diagram": "snmp"
+    "diagram": "snmp-central"
   },
   {
     "section": "snmp",
@@ -402,7 +402,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Funcionamiento de SNMP",
-    "lead": "SNMP funciona mediante la comunicación entre una plataforma de administración y los agentes de los dispositivos.\n\nLa plataforma solicita información y cada agente responde con datos sobre el equipo, como el estado de sus interfaces. Además, el agente puede enviar notificaciones cuando ocurre un evento importante",
+    "lead": "SNMP funciona mediante la comunicación entre una plataforma de administración y los agentes de los dispositivos.\n\nLa plataforma solicita información y cada agente responde con datos sobre el equipo, como el estado de sus interfaces. Además, el agente puede enviar notificaciones cuando ocurre un evento importante. En el siguiente esquema podemos observar cómo se realizan las consultas, cómo responde el agente y cómo puede enviar una notificación",
     "cards": [],
     "takeaway": "De esta manera, el administrador puede supervisar los equipos sin consultar manualmente cada dispositivo",
     "diagram": "snmp-notifications"
@@ -415,7 +415,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Importancia de SNMP",
-    "lead": "SNMP facilita el trabajo del administrador porque permite supervisar varios dispositivos desde un mismo lugar. Así podemos identificar problemas y revisar el funcionamiento de la infraestructura",
+    "lead": "SNMP facilita el trabajo del administrador porque permite supervisar varios dispositivos desde un mismo lugar. Así podemos identificar problemas y revisar el funcionamiento de la infraestructura. Sus principales ventajas son la supervisión de los equipos, la detección de fallas y el control del rendimiento",
     "cards": [
       {
         "title": "Supervisión",
@@ -439,7 +439,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Ejemplos de aplicación de SNMP",
-    "lead": "SNMP puede utilizarse en organizaciones que necesitan supervisar numerosos dispositivos sin revisarlos individualmente",
+    "lead": "SNMP puede utilizarse en organizaciones que necesitan supervisar numerosos dispositivos sin revisarlos individualmente. Veamos cómo puede ayudar tanto en una empresa como en una institución educativa",
     "cards": [
       {
         "title": "Empresa",
@@ -473,7 +473,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Definición de Syslog",
-    "lead": "Syslog es un mecanismo utilizado para generar, enviar y almacenar mensajes sobre los eventos que ocurren en los dispositivos.\n\nPor ejemplo, cuando una interfaz se desconecta, ocurre un error o se registra un intento de acceso, el equipo puede generar un mensaje que ayude al administrador a comprender lo sucedido",
+    "lead": "Syslog es un mecanismo utilizado para generar, enviar y almacenar mensajes sobre los eventos que ocurren en los dispositivos.\n\nPor ejemplo, cuando una interfaz se desconecta, ocurre un error o se registra un intento de acceso, el equipo puede generar un mensaje que ayude al administrador a comprender lo sucedido. Entre los eventos que podemos registrar se encuentran los siguientes ejemplos",
     "cards": [
       {
         "title": "¿Qué se registra?",
@@ -502,7 +502,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Importancia de Syslog",
-    "lead": "Los registros de Syslog permiten conocer qué ocurrió en los dispositivos y ayudan a investigar problemas de funcionamiento o seguridad",
+    "lead": "Los registros de Syslog permiten conocer qué ocurrió en los dispositivos y ayudan a investigar problemas de funcionamiento o seguridad. Esta información nos ofrece tres beneficios principales: conservar un historial de eventos, facilitar el diagnóstico y apoyar la supervisión de la seguridad",
     "cards": [
       {
         "title": "Historial",
@@ -526,7 +526,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Ejemplos de aplicación de Syslog",
-    "lead": "Syslog es útil cuando una organización necesita conservar los registros de sus dispositivos para investigar problemas y revisar acontecimientos importantes",
+    "lead": "Syslog es útil cuando una organización necesita conservar registros para investigar problemas y revisar acontecimientos importantes. Para comprender su aplicación, veamos dos ejemplos: una empresa y una institución financiera",
     "cards": [
       {
         "title": "Empresa",
@@ -547,7 +547,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Aplicación conjunta de SNMP y Syslog",
-    "lead": "SNMP y Syslog se complementan porque nos proporcionan información diferente sobre los dispositivos.\n\nImaginemos que una interfaz deja de funcionar. Con SNMP podemos consultar su estado actual, mientras que con Syslog podemos revisar cuándo ocurrió la desconexión y qué mensajes registró el equipo",
+    "lead": "SNMP y Syslog se complementan porque nos proporcionan información diferente sobre los dispositivos.\n\nImaginemos que una interfaz deja de funcionar. Con SNMP podemos consultar su estado actual, mientras que con Syslog podemos revisar cuándo ocurrió la desconexión y qué mensajes registró el equipo. Este ejemplo nos permite distinguir la función de cada tecnología",
     "cards": [
       {
         "title": "SNMP",
@@ -568,7 +568,7 @@ window.PRESENTATION_SLIDES = [
       "level": 1
     },
     "title": "V. Respaldo de configuraciones y administración de imágenes IOS",
-    "lead": "Hasta ahora hemos visto cómo descubrir dispositivos, sincronizar sus relojes y supervisar lo que ocurre en la red.\n\nPero también debemos estar preparados para recuperar un equipo cuando algo falla. Para ello es importante conservar respaldos de configuración y administrar correctamente el software de los dispositivos Cisco",
+    "lead": "Hasta ahora hemos visto cómo descubrir dispositivos, sincronizar sus relojes y supervisar lo que ocurre en la red.\n\nPero también debemos estar preparados para recuperar un equipo cuando algo falla. Para ello es importante conservar respaldos de configuración y administrar correctamente el software de los dispositivos Cisco. Para ello debemos considerar dos tareas: conservar las configuraciones y administrar las imágenes IOS",
     "cards": [
       {
         "title": "Respaldos",
@@ -588,7 +588,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Introducción",
-    "lead": "Imaginemos que un administrador modifica por error la configuración de un switch y varios usuarios pierden la conexión.\n\nSi existe un respaldo anterior, será posible utilizarlo para recuperar los ajustes necesarios. Por eso, antes de realizar cambios importantes, conviene conservar una copia de la configuración",
+    "lead": "Imaginemos que un administrador modifica por error la configuración de un switch y varios usuarios pierden la conexión.\n\nSi existe un respaldo anterior, será posible utilizarlo para recuperar los ajustes necesarios. Por eso, antes de realizar cambios importantes, conviene conservar una copia de la configuración. Por eso, el proceso comienza con una configuración funcional, continúa con su respaldo y permite recuperarla cuando sea necesario",
     "cards": [],
     "steps": [
       "Configuración funcional",
@@ -604,7 +604,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Respaldo de configuraciones",
-    "lead": "Un respaldo de configuración es una copia de los ajustes de un router o switch, como las direcciones IP, las interfaces y las VLAN.\n\nEsta copia puede conservarse para recuperar el funcionamiento del equipo después de un error o una falla",
+    "lead": "Un respaldo de configuración es una copia de los ajustes de un router o switch, como las direcciones IP, las interfaces y las VLAN.\n\nEsta copia puede conservarse para recuperar el funcionamiento del equipo después de un error o una falla. Una forma de conservar esta copia es enviarla desde el dispositivo hacia un servidor TFTP, como se muestra en el esquema",
     "cards": [],
     "takeaway": "Guardar la copia fuera del dispositivo permite disponer de ella incluso cuando necesitamos reemplazar el equipo original",
     "diagram": "tftp-backup"
@@ -617,7 +617,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Definición e importancia de los respaldos",
-    "lead": "Los respaldos son importantes porque permiten recuperar configuraciones que podrían perderse o modificarse accidentalmente.\n\nPor ejemplo, si alguien realiza un cambio incorrecto y la red deja de funcionar, una copia anterior puede ayudar a restaurar los ajustes necesarios y reducir el tiempo de interrupción",
+    "lead": "Los respaldos son importantes porque permiten recuperar configuraciones que podrían perderse o modificarse accidentalmente.\n\nPor ejemplo, si alguien realiza un cambio incorrecto y la red deja de funcionar, una copia anterior puede ayudar a restaurar los ajustes necesarios y reducir el tiempo de interrupción. El proceso puede entenderse en tres momentos: tenemos una configuración anterior, ocurre un cambio incorrecto y utilizamos el respaldo para recuperar los ajustes necesarios",
     "cards": [],
     "steps": [
       "Configuración anterior",
@@ -633,7 +633,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Importancia de los respaldos",
-    "lead": "Contar con respaldos permite que la administración de la red sea más segura y organizada. Sus principales ventajas se relacionan con la recuperación de los equipos y la continuidad de los servicios",
+    "lead": "Contar con respaldos permite que la administración de la red sea más segura y organizada. Esto nos ofrece tres ventajas principales: evitar la pérdida de configuraciones, facilitar la recuperación de los dispositivos y reducir las interrupciones de los servicios",
     "cards": [
       {
         "title": "Evitar pérdidas",
@@ -699,7 +699,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Métodos de respaldo y restauración",
-    "lead": "Existen diferentes formas de guardar y recuperar configuraciones. Podemos conservar los cambios en la memoria del propio dispositivo o transferir una copia a un servidor TFTP",
+    "lead": "Ahora que conocemos la importancia de los respaldos, veamos cómo podemos realizarlos en Cisco. Existen diferentes métodos: guardar los cambios en la memoria del dispositivo, enviar una copia a un servidor TFTP o recuperar una configuración guardada anteriormente. En la siguiente tabla veremos los comandos utilizados para estas operaciones",
     "cards": [],
     "note": "Al restaurar hacia running-config, los comandos pueden combinarse con la configuración existente. Además, TFTP no cifra la información, por lo que debe utilizarse en entornos controlados",
     "table": {
@@ -748,7 +748,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "¿Qué es Cisco IOS?",
-    "lead": "Cisco IOS es el sistema operativo utilizado por numerosos routers y switches Cisco. Mediante este software podemos configurar las funciones necesarias para que los dispositivos trabajen dentro de una red",
+    "lead": "Cisco IOS es el sistema operativo utilizado por numerosos routers y switches Cisco. Mediante este software podemos configurar las funciones necesarias para que los dispositivos trabajen dentro de una red. Entre esas funciones encontramos la conectividad, el enrutamiento y la seguridad",
     "cards": [
       {
         "title": "Conectividad",
@@ -772,7 +772,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "¿Qué son las imágenes IOS y para qué sirven?",
-    "lead": "Las imágenes IOS son archivos que contienen el sistema operativo de los dispositivos Cisco.\n\nEstos archivos incluyen las funciones necesarias para que el equipo pueda realizar sus tareas de comunicación y administración. Por eso, antes de instalar o actualizar una imagen, debemos comprobar que sea compatible con el dispositivo",
+    "lead": "Las imágenes IOS son archivos que contienen el sistema operativo de los dispositivos Cisco.\n\nEstos archivos incluyen las funciones necesarias para que el equipo pueda realizar sus tareas de comunicación y administración. Por eso, antes de instalar o actualizar una imagen, debemos comprobar que sea compatible con el dispositivo. En el esquema podemos observar cómo la imagen IOS se almacena en la memoria Flash y se utiliza durante el inicio del dispositivo",
     "cards": [],
     "takeaway": "También es importante revisar el espacio disponible y conservar un respaldo antes de realizar cambios",
     "diagram": "ios"
@@ -785,7 +785,7 @@ window.PRESENTATION_SLIDES = [
       "level": 2
     },
     "title": "Ejemplos de aplicación en la administración de redes",
-    "lead": "Los respaldos y el mantenimiento de los dispositivos son necesarios tanto en empresas como en instituciones educativas. Veamos dos situaciones en las que contar con una configuración guardada puede facilitar la recuperación",
+    "lead": "Los respaldos y el mantenimiento de los dispositivos son necesarios tanto en empresas como en instituciones educativas. Para comprender su utilidad, veamos dos situaciones: la recuperación de un router empresarial y la restauración de un switch de una universidad",
     "cards": [
       {
         "title": "Router empresarial",

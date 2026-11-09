@@ -223,3 +223,11 @@ body:fullscreen { background: var(--bg); }
 .commands .command-panel dl > div { padding-top: 8px; padding-bottom: 8px; }
 .commands .command-panel h3 { padding-top: 10px; padding-bottom: 10px; }
 .config-comparison td { padding-top: 10px; padding-bottom: 10px; }
+/* Keep the approved type sizes when oral transitions need more room. */
+.slide[data-index="4"] td, .slide[data-index="4"] th { padding-top: 10px; padding-bottom: 10px; }
+.slide[data-index="4"] .slide-content { gap: 14px; }
+.slide[data-index="7"] .command-panel dl > div { padding-top: 5px; padding-bottom: 5px; }
+.slide[data-index="7"] .lead { margin-bottom: 16px; }
+.slide[data-index="7"] .slide-content { gap: 14px; }
+.slide[data-index="14"] td { padding-top: 8px; padding-bottom: 8px; }
+.slide[data-index="17"] .network-diagram { min-height: 180px; }
