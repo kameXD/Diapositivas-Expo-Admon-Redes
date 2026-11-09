@@ -20,33 +20,42 @@
     return `<svg class="device-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[type]||paths.switch}</svg>`;
   }
   function diagram(type) {
-    const node=(icon,title,text)=>`<div class="network-node">${deviceIcon(icon)}<h3>${title}</h3><p>${text}</p></div>`;
+    const node=(icon,title,text)=>`<div class="network-node">${deviceIcon(icon)}<h3>${title}</h3>${text?`<p>${text}</p>`:''}</div>`;
     const exchange=(a,b)=>`<div class="exchange"><span>${a}</span><div class="connection right" aria-hidden="true"></div>${b?`<div class="connection left" aria-hidden="true"></div><span>${b}</span>`:''}</div>`;
     const devices=(items)=>`<div class="device-stack">${items.map(([icon,text])=>`<div>${deviceIcon(icon)}<span>${text}</span></div>`).join('')}</div>`;
     const types={
       neighbors:()=>node('switch','Switch A','Conserva su tabla de vecinos.')+exchange('A anuncia su identidad y puerto','B también envía sus anuncios')+node('switch','Switch B','Registra a su vecino directo.'),
       ntp:()=>devices([['router','Router cliente'],['switch','Switch cliente'],['monitor','Computadora cliente']])+exchange('Los clientes consultan la hora','El servidor responde con información horaria')+node('clock','Servidor NTP','Proporciona una referencia de tiempo.'),
       snmp:()=>node('monitor','Administrador SNMP','La plataforma central reúne los datos.')+exchange('Consulta: ¿cuál es el estado de la interfaz?','Respuesta: el agente devuelve los datos')+node('router','Equipo con agente','El agente obtiene información del dispositivo.'),
+      'snmp-notifications':()=>node('monitor','Plataforma de administración','')+`<div class="exchange"><span>Consulta</span><div class="connection right" aria-hidden="true"></div><div class="connection left" aria-hidden="true"></div><span>Respuesta</span><div class="connection left" aria-hidden="true"></div><span>Notificación</span></div>`+node('router','Agente SNMP',''),
+      'tftp-backup':()=>node('switch','Dispositivo Cisco','')+exchange('Configuración → Respaldo','')+node('server','Servidor TFTP',''),
       syslog:()=>devices([['router','Router'],['switch','Switch'],['server','Firewall / servidor']])+exchange('Los equipos envían mensajes de eventos','')+node('server','Servidor Syslog','Conserva registros para su revisión.'),
       tftp:()=>node('switch','Router o switch','Contiene los ajustes de la red.')+exchange('Respaldo: del equipo al servidor','Restauración: del servidor al equipo')+node('server','Servidor TFTP','Conserva el archivo de configuración.'),
       ios:()=>node('flash','Memoria Flash','Almacena el archivo de imagen IOS.')+exchange('Al iniciar, el equipo carga IOS en RAM','')+node('router','Dispositivo en ejecución','IOS ofrece las funciones del sistema operativo.')
     };
     return `<div class="diagram-shell"><div class="network-diagram" role="group" aria-label="Diagrama de ${escape(type==='neighbors'?'descubrimiento de vecinos':type.toUpperCase())}">${types[type]()}</div></div>`;
   }
+  const prose = (value) => escape(value).replace(/`([^`]+)`/g, '<code>$1</code>');
+  const paragraphs = (value) => value.split('\n\n').map(text => `<p>${prose(text)}</p>`).join('');
   function renderSlide(s,i) {
-    if (s.layout === 'cover') return `<section class="slide cover" data-index="${i}" aria-label="${i+1}. ${escape(s.title)}" aria-hidden="true"><div class="institution"><img src="assets/images/image1.jpeg" alt="Escudo de la UNAH"><p>Universidad Nacional Autónoma de Honduras<br>en el Valle de Sula <span>· UNAH-VS</span></p></div><div class="cover-body"><div><span class="eyebrow">REDES DE COMPUTADORAS II · SECCIÓN 2000</span><h1>Administración<br>de redes</h1><p class="cover-subtitle">Herramientas para conocer, supervisar<br>y recuperar nuestra red.</p><div class="cover-meta"><strong>Catedrático</strong><br>MSc. Luis Andres Pineda Zuniga<br><span>Asignación: Informe Administración de Redes</span></div></div><div class="team"><p class="team-label">INTEGRANTES DEL GRUPO</p>${members.map(([name,id],j)=>`<div class="team-member"><span class="member-no">0${j+1}</span><div><strong>${escape(name)}</strong><small>${id}</small></div></div>`).join('')}</div></div>${footer(s,i)}</section>`;
+    if (s.layout === 'cover') return `<section class="slide cover" data-index="${i}" aria-label="${i+1}. ${escape(s.title)}" aria-hidden="true"><div class="institution"><img src="assets/images/image1.jpeg" alt="Escudo de la UNAH"><p>Universidad Nacional Autónoma de Honduras<br>en el Valle de Sula <span>· UNAH-VS</span></p></div><div class="cover-body"><div><span class="eyebrow">REDES DE COMPUTADORAS II · SECCIÓN 2000</span><h1>${escape(s.title)}</h1><p class="cover-subtitle">${escape(s.subtitle)}</p><div class="cover-meta"><strong>Catedrático</strong><br>MSc. Luis Andres Pineda Zuniga<br><span>Asignación: Informe Administración de Redes</span></div></div><div class="team"><p class="team-label">INTEGRANTES DEL GRUPO</p>${members.map(([name,id],j)=>`<div class="team-member"><span class="member-no">0${j+1}</span><div><strong>${escape(name)}</strong><small>${id}</small></div></div>`).join('')}</div></div>${footer(s,i)}</section>`;
     let content='';
     if(s.diagram) content+=diagram(s.diagram);
     if(s.image) content+=`<figure><img src="assets/images/${escape(s.image)}" alt="${escape(s.imageAlt)}" loading="eager"></figure>`;
-    if(s.cards.length) content+=`<div class="cards ${s.cards.length===2?'two':''}">${s.cards.map((c,j)=>`<article class="card"><span class="card-number" aria-hidden="true">0${j+1} —</span><h3>${escape(c.title)}</h3><p>${escape(c.text)}</p></article>`).join('')}</div>`;
+    if(s.example) content+=`<aside class="example">${deviceIcon('switch')}<p>${prose(s.example)}</p></aside>`;
+    if(s.steps) content+=`<div class="steps" aria-label="Etapas del proceso">${s.steps.map(step=>`<div>${deviceIcon('switch')}<h3>${escape(step)}</h3></div>`).join('')}</div>`;
+    if(s.cards.length) content+=`<div class="cards ${s.cards.length===2?'two':s.cards.length===1?'one':''}">${s.cards.map((c,j)=>`<article class="card"><span class="card-number" aria-hidden="true">0${j+1} —</span><h3>${escape(c.title)}</h3><p>${escape(c.text)}</p></article>`).join('')}</div>`;
     if(s.flow) content+=`<div class="flow" aria-label="Proceso">${s.flow.map(c=>`<div class="flow-node">${icon}<h3>${escape(c.title)}</h3><p>${escape(c.text)}</p></div>`).join('')}</div>`;
+    if(s.tableIntro) content+=`<p class="table-intro">${prose(s.tableIntro)}</p>`;
     if(s.commands && s.section==='cdp') {
       content+=`<div class="command-panels">${['CDP','LLDP'].map((name,k)=>`<div class="command-panel"><h3>${name}</h3><dl>${s.table.rows.slice(k*4,k*4+4).map(row=>`<div><dt><code>${escape(row[0])}</code></dt><dd>${escape(row[1])}</dd></div>`).join('')}</dl></div>`).join('')}</div>`;
     }
     if(s.table && !(s.commands && s.section==='cdp')) content+=`<table><thead><tr>${s.table.headers.map(h=>`<th scope="col">${escape(h)}</th>`).join('')}</tr></thead><tbody>${s.table.rows.map(row=>`<tr>${row.map((cell,j)=>`<td>${s.commands&&j===0?`<code>${escape(cell)}</code>`:escape(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
-    if(s.note) content+=`<p class="note">${escape(s.note)}</p>`;
-    if(s.takeaway) content+=`<aside class="takeaway">${escape(s.takeaway)}</aside>`;
-    return `<section class="slide ${s.layout||''} ${s.visual||''} ${s.diagram?'has-diagram':''} ${s.commands?'commands':''} ${s.title.length>65?'long-title':''}" data-index="${i}" aria-label="${i+1}. ${escape(s.title)}" aria-hidden="true"><div class="slide-top"><span class="eyebrow">${chapterCodes[s.section]}</span><span class="section-number">ADMINISTRACIÓN DE REDES</span></div><h2>${escape(s.title)}</h2><p class="lead">${escape(s.lead)}</p><div class="slide-content">${content}</div>${footer(s,i)}</section>`;
+    if(s.note) content+=`<p class="note">${prose(s.note)}</p>`;
+    if(s.takeaway) content+=`<aside class="takeaway">${prose(s.takeaway)}</aside>`;
+    const lead=`<div class="lead">${paragraphs(s.lead)}</div>`;
+    const body=i===4?`<div class="split-body">${lead}<div class="slide-content">${content}</div></div>`:`${lead}<div class="slide-content">${content}</div>`;
+    return `<section class="slide ${i===4?'split-slide':''} ${s.layout||''} ${s.visual||''} ${s.diagram?'has-diagram':''} ${s.commands?'commands':''} ${s.title.length>65?'long-title':''}" data-index="${i}" aria-label="${i+1}. ${escape(s.title)}" aria-hidden="true"><div class="slide-top"><span class="eyebrow">${chapterCodes[s.section]}</span><span class="section-number">ADMINISTRACIÓN DE REDES</span></div><h2>${escape(s.title)}</h2>${body}${footer(s,i)}</section>`;
   }
   $('deck').innerHTML=slides.map(renderSlide).join('');
   const sections=[...document.querySelectorAll('.slide')];

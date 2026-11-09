@@ -197,3 +197,29 @@ body:fullscreen { background: var(--bg); }
   .slide,.slide.active { position: relative; display: flex; width: 1440px; height: 810px; break-after: page; animation: none; }
   @page { size: 384mm 216mm; margin: 0; }
 }
+/* Distribution adjustments for the group's approved, literal script. */
+.lead p { margin: 0; }
+.lead p + p { margin-top: 14px; }
+.cards.one { grid-template-columns: 1fr; }
+.cards.one .card { max-width: 100%; }
+.table-intro { margin: 0; font-size: 23px; line-height: 1.4; color: var(--text); }
+.example { display: flex; align-items: center; gap: 30px; background: #1c304ab3; border-left: 3px solid var(--blue); padding: 32px; }
+.example p { margin: 0; font-size: 27px; line-height: 1.5; }
+.steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 50px; align-items: stretch; margin-top: 20px; }
+.steps > div { border-top: 1px solid var(--blue); background: #1c304a80; padding: 30px 25px; position: relative; }
+.steps > div:not(:last-child)::after { content: '→'; position: absolute; right: -38px; top: 45%; color: var(--blue); font-size: 30px; }
+.steps h3 { font-size: 27px; line-height: 1.3; font-weight: 600; margin: 20px 0 0; color: #fff; }
+.text-only .lead { font-size: 30px; line-height: 1.5; max-width: 1210px; margin-top: 24px; }
+.text-only .lead p + p { margin-top: 26px; }
+.split-body { display: grid; grid-template-columns: 1fr 1.42fr; gap: 40px; flex: 1; min-height: 0; }
+.split-body .lead { margin: 0; font-size: 26px; }
+.split-slide figure img { height: auto; width: 100%; }
+.split-slide figure { padding: 14px; }
+.split-slide .slide-content { gap: 18px; }
+.split-slide .table-intro { font-size: 23px; }
+.split-slide th, .split-slide td { padding: 13px 14px; font-size: 22px; }
+.split-slide th:first-child, .split-slide td:first-child { width: 41%; }
+.split-slide .note { font-size: 22px; }
+.commands .command-panel dl > div { padding-top: 8px; padding-bottom: 8px; }
+.commands .command-panel h3 { padding-top: 10px; padding-bottom: 10px; }
+.config-comparison td { padding-top: 10px; padding-bottom: 10px; }
