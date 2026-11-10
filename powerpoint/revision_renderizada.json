@@ -1,0 +1,210 @@
+{
+  "slides": [
+    {
+      "slide": 1,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.203
+    },
+    {
+      "slide": 2,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 6.993
+    },
+    {
+      "slide": 3,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.724
+    },
+    {
+      "slide": 4,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.806
+    },
+    {
+      "slide": 5,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 8.279
+    },
+    {
+      "slide": 6,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 7.253
+    },
+    {
+      "slide": 7,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.342
+    },
+    {
+      "slide": 8,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 9.124
+    },
+    {
+      "slide": 9,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.663
+    },
+    {
+      "slide": 10,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.505
+    },
+    {
+      "slide": 11,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.731
+    },
+    {
+      "slide": 12,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.646
+    },
+    {
+      "slide": 13,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.92
+    },
+    {
+      "slide": 14,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.67
+    },
+    {
+      "slide": 15,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 8.337
+    },
+    {
+      "slide": 16,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.858
+    },
+    {
+      "slide": 17,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.205
+    },
+    {
+      "slide": 18,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.932
+    },
+    {
+      "slide": 19,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.059
+    },
+    {
+      "slide": 20,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.44
+    },
+    {
+      "slide": 21,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.178
+    },
+    {
+      "slide": 22,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.114
+    },
+    {
+      "slide": 23,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.832
+    },
+    {
+      "slide": 24,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.788
+    },
+    {
+      "slide": 25,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.542
+    },
+    {
+      "slide": 26,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.395
+    },
+    {
+      "slide": 27,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.937
+    },
+    {
+      "slide": 28,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.937
+    },
+    {
+      "slide": 29,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.921
+    },
+    {
+      "slide": 30,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.905
+    },
+    {
+      "slide": 31,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.077
+    },
+    {
+      "slide": 32,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 7.768
+    },
+    {
+      "slide": 33,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 8.586
+    },
+    {
+      "slide": 34,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 5.442
+    },
+    {
+      "slide": 35,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 4.941
+    },
+    {
+      "slide": 36,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 6.763
+    },
+    {
+      "slide": 37,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 7.143
+    },
+    {
+      "slide": 38,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 3.359
+    },
+    {
+      "slide": 39,
+      "allRenderedTextPresent": true,
+      "meanPixelDifferenceRgb": 3.102
+    }
+  ],
+  "renderedCharacterDifferences": [],
+  "tableWrapDifferences": [],
+  "textOutsideSlide": [],
+  "nativeTables": 6,
+  "nativeShapes": 1272,
+  "editableTextBoxes": 675,
+  "connectors": 180,
+  "onlyOriginalImages": true,
+  "masterFilesUnchanged": true,
+  "microsoftPowerPointTested": false,
+  "renderEngine": "LibreOfficeDev 26.8 / PDF"
+}

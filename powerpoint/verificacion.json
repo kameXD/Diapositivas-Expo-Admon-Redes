@@ -1,0 +1,63 @@
+{
+  "slides": 39,
+  "aspectRatio": "16:9",
+  "sizeInches": [
+    13.333333333333334,
+    7.5
+  ],
+  "allTextMatchesHtml": true,
+  "font": "Arial; Courier New para comandos",
+  "imageExceptions": [
+    {
+      "slide": 1,
+      "image": "assets/images/image1.jpeg",
+      "reason": "Imagen original del informe, conservada como imagen; su texto interno no es editable."
+    },
+    {
+      "slide": 5,
+      "image": "assets/images/image2.png",
+      "reason": "Imagen original del informe, conservada como imagen; su texto interno no es editable."
+    },
+    {
+      "slide": 11,
+      "image": "assets/images/image3.jpg",
+      "reason": "Imagen original del informe, conservada como imagen; su texto interno no es editable."
+    }
+  ],
+  "masterSha256": {
+    "index.html": "348e249fcd0e7e3fa94431c71674125240a8fd0f859c26ba8489cc46e01c3b95",
+    "css/styles.css": "e9e7b466dcff0160b4dfc2c71cc9a7b0d36f043f35e5c883fda760a37a12e3ac",
+    "js/script.js": "932d7b7823d9cbc861f8775ffa87504a1a7c69b7016f34774bf279b807d1b493",
+    "js/slides.js": "cfd2f8cbca4de624ec642199424ffca189086dbb18d8afeb1c5ecd2d74806a49",
+    "assets/coverage.json": "21eca3564dc85e46b1fceab448988072013ee5224a29a5888e3dafad2c5a9273",
+    "README.md": "b57cd070579bc22331e5155cf916df1fc983c191a1ea922659763e043ee99e56",
+    "assets/images/image1.jpeg": "636546fa3c440c638162078881d253e5ef90a86c50ac49e39012917edb3f0356",
+    "assets/images/image2.png": "b2048b7497b4ae13806fec3e032d9f80fcdfe9ac31614203f2a376dc0798ddc0",
+    "assets/images/image3.jpg": "94bc9248fba9fee7e648b33d5b3d47946e66283234162662dc736d9e5c1277d3"
+  },
+  "browserFonts": [
+    {
+      "familyName": "Liberation Sans",
+      "postScriptName": "LiberationSans-Bold",
+      "isCustomFont": false,
+      "glyphCount": 22
+    }
+  ],
+  "verification": "Reabierto con python-pptx, XML validado y cotejo de todas las palabras visibles con HTML. Ver la revisión renderizada por separado.",
+  "sourceElements": {
+    "box": 150,
+    "image": 3,
+    "text": 477,
+    "svg": 33,
+    "arrow": 14,
+    "table": 6,
+    "stepArrow": 4
+  },
+  "nativeObjects": {
+    "shapes": 1272,
+    "textBoxesWithContent": 675,
+    "tables": 6,
+    "connectors": 180,
+    "images": 3
+  }
+}
